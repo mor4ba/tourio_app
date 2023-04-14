@@ -52,7 +52,11 @@ export default function DetailsPage() {
       </Link>
       <ImageContainer>
         <StyledImage
-          src={place.image}
+          src={
+            place.image.length > 1
+              ? place.image
+              : "https://images.unsplash.com/photo-1599827552599-eadf5fb3c75f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fHJlZXBlcmJhaG4lMjBoYW1idXJnfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=900&q=60"
+          }
           priority
           fill
           sizes="(max-width: 768px) 100vw,
@@ -64,7 +68,15 @@ export default function DetailsPage() {
       <h2>
         {place.name}, {place.location}
       </h2>
-      <Link href={place.mapURL} passHref legacyBehavior>
+      <Link
+        href={
+          place.mapURL.length > 1
+            ? place.mapURL
+            : "https://goo.gl/maps/BDFvBUVmcbAfnhyX7"
+        }
+        passHref
+        legacyBehavior
+      >
         <StyledLocationLink>Location on Google Maps</StyledLocationLink>
       </Link>
       <p>{place.description}</p>

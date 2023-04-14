@@ -48,7 +48,11 @@ export default function Card({ name, image, location, id }) {
       <Figure>
         <ImageContainer>
           <StyledImage
-            src={image}
+            src={
+              image.length > 1
+                ? image
+                : "https://images.unsplash.com/photo-1599827552599-eadf5fb3c75f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fHJlZXBlcmJhaG4lMjBoYW1idXJnfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=900&q=60"
+            }
             fill
             sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
